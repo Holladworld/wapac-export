@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tcf-bg: #1a1a1a;
+  --tcf-primary: #1a1a1a;
+  --tcf-text: #f5f5f5;
+  --tcf-secondary-text: #a3a3a3;
+  --tcf-accent: #f59e0b;
+  --tcf-button: #d97706;
+  --tcf-button-text: #ffffff;
+  --tcf-border: #27272a;
+  --tcf-card: #18181b;
+  --tcf-card-hover: #1f1f23;
+}
+
+[data-theme="light"] {
+  --tcf-bg: #fafaf9;
+  --tcf-primary: #ffffff;
+  --tcf-text: #1c1917;
+  --tcf-secondary-text: #57534e;
+  --tcf-accent: #d97706;
+  --tcf-button: #d97706;
+  --tcf-button-text: #ffffff;
+  --tcf-border: #e7e5e4;
+  --tcf-card: #ffffff;
+  --tcf-card-hover: #f5f5f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+  background-color: var(--tcf-bg);
+  color: var(--tcf-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--tcf-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--tcf-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tcf-accent);
+}
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: inherit; }
+input, textarea, select { font-family: inherit; }
