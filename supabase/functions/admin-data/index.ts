@@ -87,10 +87,13 @@ Deno.serve(async (req: Request) => {
       });
     }
 
+    // ✅ UPDATED: Added slider_slides and admin_users
     const allowedTables = [
       "products", "orders", "order_items", "blog_posts", "contact_submissions",
       "reviews", "site_settings", "email_templates", "integrations", "media_library",
       "newsletter_subscribers", "audit_logs", "error_logs",
+      "slider_slides",    // ← ADDED for slider management
+      "admin_users"       // ← ADDED for admin user management
     ];
 
     if (!allowedTables.includes(table)) {
