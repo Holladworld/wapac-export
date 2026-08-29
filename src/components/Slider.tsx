@@ -17,7 +17,7 @@ export default function Slider() {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [loading, setLoading] = useState(true);
-  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const autoplayRef = useRef<number | null>(null); // ← FIXED: number instead of NodeJS.Timeout
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Slider() {
         .order('order_index', { ascending: true });
 
       if (error) throw error;
-      
+
       // Add placeholder slides if none exist
       if (!data || data.length === 0) {
         setSlides([
