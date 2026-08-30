@@ -2,11 +2,17 @@ import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, ArrowRight, CheckCircle2, Instagram, Linkedin, AlertCircle } from 'lucide-react';
 import { useState } from 'react';
 import { useSettings } from '../context/SettingsContext';
+import { useTheme } from '../context/ThemeContext';
 import { supabase } from '../lib/supabase';
 import { validateEmail } from '../lib/validation';
 
+// 🔥 ADD LOGO CONSTANTS (same as Header)
+const LOGO_DARK = 'https://i.imgur.com/PU5jooK.png';   // White logo for dark background
+const LOGO_LIGHT = 'https://i.imgur.com/dddjbC5.png'; // Colored/black logo for light background
+
 export default function Footer() {
   const { settings } = useSettings();
+  const { theme } = useTheme(); // ← ADD THIS to get current theme
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   const [error, setError] = useState('');
@@ -42,7 +48,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <img
-                src={settings.logo_url || 'https://i.imgur.com/noYeUDV.png'}
+                src={settings.logo_url || (theme === 'dark' ? LOGO_DARK : LOGO_LIGHT)}
                 alt="Wapac Export"
                 className="h-14 w-auto object-contain"
               />
@@ -64,12 +70,12 @@ export default function Footer() {
             <h4 className="text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--tcf-accent)' }}>Quick Links</h4>
             <ul className="space-y-3 text-sm">
               <li><Link to="/" className="transition-colors hover:opacity-80" style={{ color: 'var(--tcf-secondary-text)' }}>Home</Link></li>
+              <li><Link to="/all-products" className="transition-colors hover:opacity-80" style={{ color: 'var(--tcf-secondary-text)' }}>All Products</Link></li>
               <li><Link to="/products" className="transition-colors hover:opacity-80" style={{ color: 'var(--tcf-secondary-text)' }}>Charcoal Products</Link></li>
               <li><Link to="/allied-commodities" className="transition-colors hover:opacity-80" style={{ color: 'var(--tcf-secondary-text)' }}>Allied Commodities</Link></li>
               <li><Link to="/bulk-charcoal" className="transition-colors hover:opacity-80" style={{ color: 'var(--tcf-secondary-text)' }}>Bulk Order</Link></li>
               <li><Link to="/blog" className="transition-colors hover:opacity-80" style={{ color: 'var(--tcf-secondary-text)' }}>Blog</Link></li>
               <li><Link to="/about" className="transition-colors hover:opacity-80" style={{ color: 'var(--tcf-secondary-text)' }}>About Us</Link></li>
-              <li><Link to="/contact" className="transition-colors hover:opacity-80" style={{ color: 'var(--tcf-secondary-text)' }}>Contact Us</Link></li>
             </ul>
           </div>
 

@@ -20,6 +20,8 @@ import Checkout from './pages/Checkout';
 import NotFound from './pages/NotFound';
 import AdminLogin from './pages/admin/AdminLogin';
 import Admin from './pages/admin/Admin';
+import AllProducts from './pages/AllProducts';
+
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -51,6 +53,7 @@ function AppRoutes() {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route path="/products/:id" element={<ProductDetail />} />
+              <Route path="/all-products" element={<AllProducts />} />
               <Route path="/allied-commodities" element={<AlliedCommodities />} />
               <Route path="/bulk-charcoal" element={<BulkCharcoal />} />
               <Route path="/about" element={<About />} />

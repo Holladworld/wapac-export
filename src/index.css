@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 🔥 GLOBAL FONT SETTINGS */
+@layer base {
+  html {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* For body text, you can keep the same font or use a different one */
+  body {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  }
+  
+  /* If you want body text to be a different font, uncomment this:
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  */
+  
+  /* Headings use Playfair Display (already inherited) */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-weight: 600;
+  }
+}
+
 :root {
   --tcf-bg: #1a1a1a;
   --tcf-primary: #1a1a1a;
@@ -34,7 +60,6 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
   background-color: var(--tcf-bg);
   color: var(--tcf-text);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -64,6 +89,16 @@ body {
   background: var(--tcf-accent);
 }
 
-a { text-decoration: none; color: inherit; }
-button { cursor: pointer; font-family: inherit; }
-input, textarea, select { font-family: inherit; }
+a { 
+  text-decoration: none; 
+  color: inherit; 
+}
+
+button { 
+  cursor: pointer; 
+  font-family: inherit; 
+}
+
+input, textarea, select { 
+  font-family: inherit; 
+}
