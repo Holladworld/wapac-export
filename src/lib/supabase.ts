@@ -1,12 +1,29 @@
 import { createClient } from '@supabase/supabase-js';
 
+// Get environment variables
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+// 🔥 ADD ERROR HANDLING
+if (!supabaseUrl) {
+  throw new Error('Missing VITE_SUPABASE_URL environment variable');
+}
+
+if (!supabaseAnonKey) {
+  throw new Error('Missing VITE_SUPABASE_ANON_KEY environment variable');
+}
+
+// 🔥 ADD DEBUG LOGS (remove after testing)
+console.log('🔍 Supabase initialized with:');
+console.log('  URL:', supabaseUrl);
+console.log('  Key exists:', !!supabaseAnonKey);
+console.log('  Key length:', supabaseAnonKey?.length);
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: { persistSession: false },
 });
 
+// Type definitions
 export type Product = {
   id: string;
   name: string;
